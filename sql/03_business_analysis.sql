@@ -10,3 +10,17 @@ SELECT
 FROM zepto_products
 GROUP BY Category
 ORDER BY product_count DESC;
+
+
+USE zepto;
+
+QUESTION 2
+Which categories generate the highest potential sales value?
+Business Objective: Estimate the potential sales value of currently available inventory.
+
+SELECT
+    Category,
+    SUM(discounted_Selling_Price * available_Quantity) AS inventory_value
+FROM zepto_products
+GROUP BY Category
+ORDER BY inventory_value DESC;
