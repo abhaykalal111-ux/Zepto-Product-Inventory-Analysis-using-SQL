@@ -24,3 +24,10 @@ SELECT
 FROM zepto_products
 GROUP BY Category
 ORDER BY inventory_value DESC;
+
+Business Insight:
+Cooking Essentials and Munchies have the highest potential
+inventory sales value at approximately ₹3.37 crore each.
+These categories represent the largest available inventory
+value and may deserve greater attention in inventory planning
+and sales prioritization.
