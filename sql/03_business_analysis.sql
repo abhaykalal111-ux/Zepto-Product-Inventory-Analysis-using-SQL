@@ -218,3 +218,27 @@ ORDER BY total_discount_savings DESC;
 -- each in total discount savings.
 -- This indicates that these categories contribute the largest
 -- overall price reductions across the product assortment.
+
+-- QUESTION 12
+-- Which categories have the highest out-of-stock percentage?
+-- Business Objective:
+-- Compare stock availability across categories using out-of-stock rates.
+
+SELECT
+    Category,
+    COUNT(*) AS total_products,
+    SUM(CASE WHEN available_Quantity = 0 THEN 1 ELSE 0 END) AS out_of_stock_products,
+    ROUND(
+        SUM(CASE WHEN available_Quantity = 0 THEN 1 ELSE 0 END) * 100.0 / COUNT(*),
+        2
+    ) AS out_of_stock_percentage
+FROM zepto_products
+GROUP BY Category
+ORDER BY out_of_stock_percentage DESC;
+
+-- Business Insight:
+-- Biscuits has the highest out-of-stock rate at approximately 28.57%.
+-- Beverages and Dairy, Bread & Batter follow at approximately 21.71%.
+-- Meats, Fish & Eggs has an out-of-stock rate of approximately 19.05%.
+-- These categories may require closer replenishment monitoring
+-- because a relatively high proportion of their products are unavailable.
