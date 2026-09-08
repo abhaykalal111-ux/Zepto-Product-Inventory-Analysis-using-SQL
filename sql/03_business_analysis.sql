@@ -288,3 +288,28 @@ LIMIT 10;
 -- approximately ₹700.
 -- These products provide customers with substantial monetary savings
 -- even when their discount percentages are not necessarily the highest.
+
+-- QUESTION 15
+-- Which products have the highest discounted selling price?
+-- Business Objective:
+-- Identify the most expensive products based on current selling price.
+
+SELECT
+    id,
+    name,
+    Category,
+    mrp,
+    discount_Percent,
+    discounted_Selling_Price
+FROM zepto_products
+ORDER BY discounted_Selling_Price DESC
+LIMIT 10;
+
+-- Business Insight:
+-- Borges Extra Light Olive Oil Bottle has the highest discounted
+-- selling price at approximately ₹1,399.
+-- Praakritik Natural Desi Gir Cow A2 Ghee and Saffola Gold (Jar)
+-- also rank among the highest-priced products.
+-- The highest-priced products are concentrated mainly in the
+-- Cooking Essentials category, indicating a higher-value product
+-- assortment within this category.
