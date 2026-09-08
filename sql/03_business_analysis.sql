@@ -157,3 +157,23 @@ ORDER BY total_available_inventory DESC;
 -- follow with 1,521 units each.
 -- These categories hold the largest quantities of available stock
 -- and may require closer inventory monitoring and replenishment planning.
+
+-- QUESTION 9
+-- Which categories have the highest average selling price?
+-- Business Objective:
+-- Identify categories with the highest average discounted selling price.
+
+SELECT
+    Category,
+    ROUND(AVG(discounted_Selling_Price), 2) AS average_selling_price
+FROM zepto_products
+GROUP BY Category
+ORDER BY average_selling_price DESC;
+
+-- Business Insight:
+-- Personal Care and Paan Corner have the highest average discounted
+-- selling price at approximately ₹189.74.
+-- Meats, Fish & Eggs and Health & Hygiene follow with average
+-- selling prices of approximately ₹164.10 and ₹158.56 respectively.
+-- This indicates that these categories generally contain higher-priced
+-- products compared with categories having lower average selling prices.
