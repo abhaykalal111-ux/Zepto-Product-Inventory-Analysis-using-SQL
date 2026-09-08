@@ -137,3 +137,23 @@ LIMIT 10;
 -- These products represent relatively high-value inventory and may
 -- require closer monitoring to avoid excessive capital being tied up
 -- in stock.
+
+-- QUESTION 8
+-- Which categories have the highest total available inventory?
+-- Business Objective:
+-- Identify categories with the largest total number of units available.
+
+SELECT
+    Category,
+    SUM(available_Quantity) AS total_available_inventory
+FROM zepto_products
+GROUP BY Category
+ORDER BY total_available_inventory DESC;
+
+-- Business Insight:
+-- Cooking Essentials and Munchies have the highest total available
+-- inventory, with 2,186 units each.
+-- Packaged Food, Ice Cream & Desserts, and Chocolates & Candies
+-- follow with 1,521 units each.
+-- These categories hold the largest quantities of available stock
+-- and may require closer inventory monitoring and replenishment planning.
