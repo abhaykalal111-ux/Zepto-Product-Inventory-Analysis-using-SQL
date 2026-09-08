@@ -198,3 +198,23 @@ ORDER BY total_inventory_value DESC;
 -- These categories represent the largest amount of potential sales
 -- value currently held in available inventory and may require closer
 -- inventory and working-capital monitoring.
+
+-- QUESTION 11
+-- Which categories provide the highest total discount savings?
+-- Business Objective:
+-- Identify categories with the largest total discount amount.
+
+SELECT
+    Category,
+    SUM(mrp - discounted_Selling_Price) AS total_discount_savings
+FROM zepto_products
+GROUP BY Category
+ORDER BY total_discount_savings DESC;
+
+-- Business Insight:
+-- Cooking Essentials and Munchies have the highest total discount
+-- savings at approximately ₹8,074 each.
+-- Paan Corner and Personal Care follow with approximately ₹5,979
+-- each in total discount savings.
+-- This indicates that these categories contribute the largest
+-- overall price reductions across the product assortment.
