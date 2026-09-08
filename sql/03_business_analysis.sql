@@ -112,3 +112,28 @@ ORDER BY out_of_stock_products DESC;
 -- follow with 45 out-of-stock products each.
 -- These categories may require greater attention to inventory
 -- monitoring and replenishment planning.
+
+-- QUESTION 7
+-- Which products have the highest inventory value?
+-- Business Objective:
+-- Identify products with the highest potential inventory value.
+
+SELECT
+id,
+name,
+Category,
+available_Quantity,
+discounted_Selling_Price,
+discounted_Selling_Price * available_Quantity AS inventory_value
+FROM zepto_products
+ORDER BY inventory_value DESC
+LIMIT 10;
+
+-- Business Insight:
+-- Borges Extra Light Olive Oil Bottle has the highest inventory value
+-- at ₹8,394 per product-category record.
+-- Praakritik Natural Desi Gir Cow A2 Ghee and Saffola Gold also
+-- have high inventory values.
+-- These products represent relatively high-value inventory and may
+-- require closer monitoring to avoid excessive capital being tied up
+-- in stock.
