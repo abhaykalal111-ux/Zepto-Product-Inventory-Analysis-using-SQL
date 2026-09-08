@@ -263,3 +263,28 @@ ORDER BY average_inventory_per_product DESC;
 -- per product.
 -- This indicates that these categories maintain relatively deeper
 -- inventory levels on a per-product basis.
+
+-- QUESTION 14
+-- Which products have the highest absolute discount amount?
+-- Business Objective:
+-- Identify products with the largest monetary discount.
+
+SELECT
+    id,
+    name,
+    Category,
+    mrp,
+    discount_Percent,
+    discounted_Selling_Price,
+    mrp - discounted_Selling_Price AS discount_amount
+FROM zepto_products
+ORDER BY discount_amount DESC
+LIMIT 10;
+
+-- Business Insight:
+-- Borges Extra Light Olive Oil Bottle has the highest absolute
+-- discount amount at approximately ₹1,201.
+-- Pampers Pants - Large follows with an absolute discount of
+-- approximately ₹700.
+-- These products provide customers with substantial monetary savings
+-- even when their discount percentages are not necessarily the highest.
