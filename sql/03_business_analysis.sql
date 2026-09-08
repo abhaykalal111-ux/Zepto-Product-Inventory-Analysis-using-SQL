@@ -71,3 +71,22 @@ LIMIT 10;
 -- The highest available quantity is 6 units.
 -- Multiple products are tied at this inventory level,
 -- indicating that inventory is relatively low across the top-ranked products.
+
+-- QUESTION 5
+-- Which categories have the highest average discount percentage?
+-- Business Objective:
+-- Identify categories with the highest average promotional discount.
+
+SELECT
+    Category,
+    ROUND(AVG(discount_Percent), 2) AS average_discount
+FROM zepto_products
+GROUP BY Category
+ORDER BY average_discount DESC;
+
+-- Business Insight:
+-- Fruits & Vegetables have the highest average discount at 15.46%,
+-- followed by Meats, Fish & Eggs at 11.03%.
+-- Most other categories have average discounts around 7-8%.
+-- The higher discounts in fresh and perishable categories may help
+-- encourage faster sales and reduce the risk of unsold inventory.
