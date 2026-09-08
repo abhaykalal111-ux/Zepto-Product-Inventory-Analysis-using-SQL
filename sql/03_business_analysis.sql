@@ -90,3 +90,25 @@ ORDER BY average_discount DESC;
 -- Most other categories have average discounts around 7-8%.
 -- The higher discounts in fresh and perishable categories may help
 -- encourage faster sales and reduce the risk of unsold inventory.
+
+-- QUESTION 6
+-- Which categories have the highest number of out-of-stock products?
+-- Business Objective:
+-- Identify categories with the highest number of products
+-- having zero available inventory.
+
+SELECT
+    Category,
+    COUNT(*) AS out_of_stock_products
+FROM zepto_products
+WHERE available_Quantity = 0
+GROUP BY Category
+ORDER BY out_of_stock_products DESC;
+
+-- Business Insight:
+-- Cooking Essentials and Munchies have the highest number of
+-- out-of-stock products, with 64 products each.
+-- Packaged Food, Ice Cream & Desserts, and Chocolates & Candies
+-- follow with 45 out-of-stock products each.
+-- These categories may require greater attention to inventory
+-- monitoring and replenishment planning.
