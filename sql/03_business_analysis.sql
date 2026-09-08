@@ -177,3 +177,24 @@ ORDER BY average_selling_price DESC;
 -- selling prices of approximately ₹164.10 and ₹158.56 respectively.
 -- This indicates that these categories generally contain higher-priced
 -- products compared with categories having lower average selling prices.
+
+-- QUESTION 10
+-- Which categories have the highest total potential inventory value?
+-- Business Objective:
+-- Identify categories with the largest potential value of available inventory.
+
+SELECT
+    Category,
+    SUM(discounted_Selling_Price * available_Quantity) AS total_inventory_value
+FROM zepto_products
+GROUP BY Category
+ORDER BY total_inventory_value DESC;
+
+-- Business Insight:
+-- Cooking Essentials and Munchies have the highest total potential
+-- inventory value at approximately ₹3,37,369 each.
+-- Personal Care and Paan Corner follow with approximately ₹2,70,849
+-- each.
+-- These categories represent the largest amount of potential sales
+-- value currently held in available inventory and may require closer
+-- inventory and working-capital monitoring.
