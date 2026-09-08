@@ -51,3 +51,23 @@ LIMIT 10;
 -- wafer products receiving this discount.
 -- Several other products in the top 10 are discounted by 50%,
 -- indicating aggressive promotional pricing across selected products.
+
+-- QUESTION 4
+-- Which products have the highest available inventory?
+-- Business Objective:
+-- Identify products with the highest available quantity.
+
+SELECT
+    id,
+    name,
+    Category,
+    available_Quantity,
+    discounted_Selling_Price
+FROM zepto_products
+ORDER BY available_Quantity DESC
+LIMIT 10;
+
+-- Business Insight:
+-- The highest available quantity is 6 units.
+-- Multiple products are tied at this inventory level,
+-- indicating that inventory is relatively low across the top-ranked products.
