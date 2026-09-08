@@ -242,3 +242,24 @@ ORDER BY out_of_stock_percentage DESC;
 -- Meats, Fish & Eggs has an out-of-stock rate of approximately 19.05%.
 -- These categories may require closer replenishment monitoring
 -- because a relatively high proportion of their products are unavailable.
+
+-- QUESTION 13
+-- Which categories have the highest average inventory per product?
+-- Business Objective:
+-- Compare inventory depth across categories.
+
+SELECT
+    Category,
+    ROUND(AVG(available_Quantity), 2) AS average_inventory_per_product
+FROM zepto_products
+GROUP BY Category
+ORDER BY average_inventory_per_product DESC;
+
+-- Business Insight:
+-- Health & Hygiene has the highest average inventory at approximately
+-- 4.38 units per product.
+-- Home & Cleaning follows at approximately 4.32 units per product.
+-- Cooking Essentials and Munchies maintain approximately 4.25 units
+-- per product.
+-- This indicates that these categories maintain relatively deeper
+-- inventory levels on a per-product basis.
